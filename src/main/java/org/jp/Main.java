@@ -4,6 +4,6 @@ package org.jp;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        System.out.println("This is start of my next level");
+        System.out.println("This is start of my next leveln");
     }
 }
