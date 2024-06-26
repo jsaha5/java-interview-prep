@@ -5,6 +5,7 @@ import java.io.IOException;
 public class FileProcessorDemo {
     public static void main(String[] args) throws Exception {
         FileProcessor fileProcessor = new FileProcessor("test.txt");
+
     // Reading one line
         String output = fileProcessor.readFile(br-> {
             try {

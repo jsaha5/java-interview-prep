@@ -2,10 +2,13 @@ package org.jp.behavior.parameterization;
 
 import java.io.*;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class FileProcessor {
 
-    private final String fileName;
+    private  String fileName = "";
+
+    public Supplier<String> getFileName= ()-> fileName;
 
     public FileProcessor(String fileName) {
         this.fileName = fileName;
@@ -20,4 +23,5 @@ public class FileProcessor {
         return apply;
 
     }
+
 }

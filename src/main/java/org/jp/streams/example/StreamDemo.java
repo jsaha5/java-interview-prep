@@ -1,7 +1,7 @@
 package org.jp.streams.example;
 
-import java.util.List;
-import java.util.function.*;
+import java.util.function.BiConsumer;
+import java.util.function.IntFunction;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
