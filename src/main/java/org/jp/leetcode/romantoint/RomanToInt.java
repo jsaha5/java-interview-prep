@@ -1,4 +1,4 @@
-package org.jp.romantoint;
+package org.jp.leetcode.romantoint;
 
 import java.util.Arrays;
 import java.util.HashMap;

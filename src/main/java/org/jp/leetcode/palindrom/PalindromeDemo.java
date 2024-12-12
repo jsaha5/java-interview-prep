@@ -1,4 +1,4 @@
-package org.jp.palindrom;
+package org.jp.leetcode.palindrom;
 
 import java.util.function.Predicate;
 

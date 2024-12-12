@@ -1,6 +1,6 @@
 package twopointer;
 
-import org.jp.twopointer.FindTwoNumsThatAddUpTotheTarget;
+import org.jp.leetcode.twopointer.FindTwoNumsThatAddUpTotheTarget;
 import org.junit.jupiter.api.Test;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
