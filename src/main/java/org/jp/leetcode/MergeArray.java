@@ -1,12 +1,5 @@
 package org.jp.leetcode;
 
-import org.jp.models.Apple;
-import org.jp.models.Colors;
-import org.jp.models.Size;
-
-import java.util.Arrays;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class MergeArray {
     public static void main(String[] args) {
