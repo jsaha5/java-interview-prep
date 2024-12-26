@@ -13,7 +13,7 @@ public class ProcessorWithMonitorLock implements Process{
     @Override
     public void produce() throws InterruptedException {
         synchronized (this) {
-            while (true) {
+            while (value <=50) {
                 if (list.size() == UPPER_LIMIT) {
                     System.out.println("Waiting for items to be removed from the list");
                     wait();
@@ -34,7 +34,7 @@ public class ProcessorWithMonitorLock implements Process{
             while (true) {
                 if (list.size() == LOWER_LIMIT) {
                     System.out.println("Waiting for Items to be added to the list");
-                    wait();
+                    wait(2000);
                 } else {
                     var removedValue = list.removeLast();
                     System.out.println("Removed " + removedValue + " from the list");

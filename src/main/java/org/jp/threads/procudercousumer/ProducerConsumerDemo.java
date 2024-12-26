@@ -2,7 +2,7 @@ package org.jp.threads.procudercousumer;
 
 
 public class ProducerConsumerDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Process processor = new ProcessorWithReentrantLock();
 
         Thread producer = new Thread(() -> {
@@ -21,7 +21,8 @@ public class ProducerConsumerDemo {
             }
         });
 
-        producer.start();
         consumer.start();
+        producer.start();
+
     }
 }

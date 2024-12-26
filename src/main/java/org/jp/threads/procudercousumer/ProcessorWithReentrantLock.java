@@ -8,10 +8,10 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ProcessorWithReentrantLock implements Process {
 
-    private List<Integer> list ;
+    private List<Integer> list;
     private final int UPPER_LIMIT = 5;
     private final int LOWER_LIMIT = 0;
-    private int value  = 0;
+    private int value = 0;
     private Lock lock;
 
     private Condition condition;
@@ -25,33 +25,38 @@ public class ProcessorWithReentrantLock implements Process {
     @Override
     public void consume() throws InterruptedException {
         while (true) {
+            lock.lock();
             if (list.size() == LOWER_LIMIT) {
-                System.out.println("Waiting for items to get added ....");
-                condition.signal();
-                lock.unlock();
-            } else {
-                lock.lock();
+                System.out.println("Waiting for Producer to produce");
                 condition.await();
-                System.out.println("Removing " + list.removeLast());
+                lock.unlock();
+
+            } else {
+                System.out.println("Removed: " + list.removeLast());
+                condition.signal();
             }
+
         }
     }
 
     @Override
-    public void produce()  throws InterruptedException{
+    public void produce() throws InterruptedException {
 
         while (true) {
+            lock.lock();
             if (list.size() == UPPER_LIMIT) {
-                System.out.println("Waiting for items to be removed ....");
-                condition.signal();
+                System.out.println("Waiting for Consumer to consume");
+                condition.await();
+                Thread.sleep(3000);
                 lock.unlock();
-            } else {
-                lock.lock();
-                list.add(value);
-                System.out.println("Added: " + value);
-                value++;
 
+            } else {
+                System.out.println("Added : "+ value);
+                list.add(value);
+                value++;
+                condition.signal();
             }
+
         }
     }
 
