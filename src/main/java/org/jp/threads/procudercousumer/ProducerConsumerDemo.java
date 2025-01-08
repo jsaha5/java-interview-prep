@@ -3,7 +3,7 @@ package org.jp.threads.procudercousumer;
 
 public class ProducerConsumerDemo {
     public static void main(String[] args) throws InterruptedException {
-        Process processor = new ProcessorWithReentrantLock();
+        Process processor = new ProducerCounsumerWithBinarySemaphore();
 
         Thread producer = new Thread(() -> {
             try {
@@ -21,8 +21,11 @@ public class ProducerConsumerDemo {
             }
         });
 
-        consumer.start();
+
+
+
         producer.start();
+        consumer.start();
 
     }
 }
